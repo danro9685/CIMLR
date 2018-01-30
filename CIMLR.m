@@ -1,6 +1,5 @@
-function [y, S, F, ydata,alphaK,timeOurs,converge,LF] = SIMLR(alldata, c, k)
+function [y, S, F, ydata,alphaK,timeOurs,converge,LF] = CIMLR(alldata, c, k)
 
-%%%
 if nargin==2
     k=10;
     ifimpute = 0;
