@@ -1,2 +1,2 @@
-# CSIMLR
-Implementation of the CSIMLR method.
+# CIMLR
+Implementation of the CIMLR clustering method. 
