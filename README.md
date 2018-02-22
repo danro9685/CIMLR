@@ -1,5 +1,5 @@
 # CIMLR
 
-Implementation of the CIMLR clustering method. 
+Matlab implementation of the CIMLR clustering method. An example of usage of the tool is provided in the script example_lower_grade_gliomas.m on the multi-omic dataset of lower grade gliomas from https://www.ncbi.nlm.nih.gov/pubmed/26061751. 
 
-The method requires a set of Matlab and C scripts originally published in https://github.com/BatzoglouLabSU/SIMLR. For further details about the setup of these scripts, we refer to this resource. 
+For further details, we refer to the main Github repository of the tool at https://github.com/BatzoglouLabSU/SIMLR. 
