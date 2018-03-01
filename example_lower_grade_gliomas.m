@@ -34,7 +34,7 @@ rng(4355677);
 
 % estimate the best number of clusters
 NUMC = 2:15;
-[K1, K2] = Estimate_Number_of_Clusters_CIMLR(alldata, NUMC);
+[K1, K2] = Estimate_Number_of_Clusters_CIMLR(alldata,NUMC);
 
 % perform CIMLR with the estimated best number of clusters
 C = 3; %%% best number of clusters
