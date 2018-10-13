@@ -1,10 +1,10 @@
 Package: CIMLR
 Version: 1.0.0
-Date: 2018-10-12
+Date: 2018-10-13
 Title: 
     Cancer Integration via Multikernel Learning (CIMLR)
 Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti1@gmail.com"),
-             person("Avantika", "Lal", role=c("ctb")),
+             person("Avantika", "Lal", role=c("aut")),
              person("Bo", "Wang", role=c("ctb")),
              person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com"),
              person("Serafim", "Batzoglou", role=c("ctb")),

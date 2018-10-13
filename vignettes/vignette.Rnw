@@ -75,7 +75,7 @@ background = "#f3f3ff"
 \begin{tabular}{| l | p{6.0cm} | l |}
 {\bf Acronym} & {\bf Extended name} & {\bf Reference}\\ \hline
 
-CIMLR & Cancer Integration via Multikernel Learning & \href{https://www.biorxiv.org/content/early/2018/09/16/267245}{Pubblication}\\ \hline
+CIMLR & Cancer Integration via Multikernel Learning & \href{https://www.biorxiv.org/content/early/2018/09/16/267245}{Publication}\\ \hline
 
 \end{tabular}
 \end{center}

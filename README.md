@@ -14,7 +14,7 @@ The R branch of the repository provides the tool implemented in R, while the Mat
 
 **CIMLR**
 
-Abstract: Outcomes for cancer patients vary greatly even within the same tumor type, and characterization of molecular subtypes of cancer holds important promise for improving prognosis and personalized treatment. This promise has motivated recent efforts to produce large amounts of multidimensional genomic ('multi-omic') data, but current algorithms still face challenges in the integrated analysis of such data. Here we present Cancer Integration via Multikernel Learning (CIMLR), a new cancer subtyping method that integrates multi-omic data to reveal molecular subtypes of cancer. We apply CIMLR to multi-omic data from 36 cancer types and show significant improvements in both computational efficiency and ability to extract biologically meaningful cancer subtypes. The discovered subtypes exhibit significant differences in patient survival for 27 of 36 cancer types. Our analysis reveals integrated patterns of gene expression, methylation, point mutations and copy number changes in multiple cancers and highlights patterns specifically associated with poor patient outcomes. 
+Outcomes for cancer patients vary greatly even within the same tumor type, and characterization of molecular subtypes of cancer holds important promise for improving prognosis and personalized treatment. This promise has motivated recent efforts to produce large amounts of multidimensional genomic ('multi-omic') data, but current algorithms still face challenges in the integrated analysis of such data. Here we present Cancer Integration via Multikernel Learning (CIMLR), a new cancer subtyping method that integrates multi-omic data to reveal molecular subtypes of cancer. We apply CIMLR to multi-omic data from 36 cancer types and show significant improvements in both computational efficiency and ability to extract biologically meaningful cancer subtypes. The discovered subtypes exhibit significant differences in patient survival for 27 of 36 cancer types. Our analysis reveals integrated patterns of gene expression, methylation, point mutations and copy number changes in multiple cancers and highlights patterns specifically associated with poor patient outcomes. 
 
 **CITATION**
 
@@ -24,11 +24,26 @@ When using the tool, please cite Ramazzotti, Daniele, et al. "Multi-omic tumor d
 
 **RUNNING CIMLR R IMPLEMENTATION**
 
-To be updated. 
+The R version of *CIMLR* can be installed from Github. To do so, we need to install the R packages *CIMLR* dependes from and the devtools package. 
+
+First we run an R session and we execute the following commands. 
+
+install.packages("devtools", dependencies = TRUE)
+install.packages("Matrix", dependencies = TRUE)
+
+Now we can install and run *CIMLR* as follows. 
+
+library("devtools")
+install_github("danro9685/CIMLR", ref = 'R')
+library("CIMLR")
 
 **RUNNING CIMLR MATLAB IMPLEMENTATION**
 
-To be updated. 
+The Matlab version of *CIMLR* is available in the Matlab branch of the repository. This version can be directly used through MATLAB by downloading the code in the repository. 
+
+The scripts *Estimate_Number_of_Clusters_CIMLR.m* and *CIMLR.m* implement heuristics to estimate the best number of clusters from data and the code to run *CIMLR*. The script *CIMLR_Feature_Ranking.m* provides code to assess which features were the most important for the clustering. 
+
+A demo of the whole *CIMLR* analysis is provided in the script *main_example_lower_grade_gliomas.m* for a dataset of 282 patients affected by lower-grade glioma. The original data were published in Cancer Genome Atlas Research Network. "Comprehensive, integrative genomic analysis of diffuse lower-grade gliomas." New England Journal of Medicine 372.26 (2015): 2481-2498. 
 
 **DEBUG**
 

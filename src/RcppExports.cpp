@@ -30,7 +30,7 @@ RcppExport SEXP projsplx(SEXP, SEXP);
 
 static const R_CallMethodDef CallEntries[] = {
     {"_CIMLR_Rtsne_cpp", (DL_FUNC) &_CIMLR_Rtsne_cpp, 10},
-    {"projsplx", (DL_FUNC) &projsplx, 2},
+    {"projsplx",         (DL_FUNC) &projsplx,          2},
     {NULL, NULL, 0}
 };
 
