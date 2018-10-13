@@ -1,5 +1,5 @@
-% This script performs the whole CIMLR analysis on a dataset of 282 patients 
-% affecte with lower-grade gliomas. 
+% This script performs the whole CIMLR analysis for a dataset of 282 patients 
+% affected by lower-grade gliomas. 
 % Original data published in Cancer Genome Atlas Research Network. "Comprehensive, 
 % integrative genomic analysis of diffuse lower-grade gliomas." New England 
 % Journal of Medicine 372.26 (2015): 2481-2498. 
