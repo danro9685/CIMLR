@@ -1,3 +1,9 @@
+% This script performs the whole CIMLR analysis on a dataset of 282 patients 
+% affecte with lower-grade gliomas. 
+% Original data published in Cancer Genome Atlas Research Network. "Comprehensive, 
+% integrative genomic analysis of diffuse lower-grade gliomas." New England 
+% Journal of Medicine 372.26 (2015): 2481-2498. 
+
 clear
 clc
 close all
@@ -38,3 +44,8 @@ rng(32655,'twister'); %%% for reproducibility
 C = 3; %%% best number of clusters
 rng(43556,'twister'); %%% for reproducibility
 [y, S, F, ydata] = CIMLR(alldata,C,10);
+
+% perform CIMLR Feature Ranking
+rng(12844,'twister'); %%% for reproducibility
+mydata = [alldata{1} alldata{2} alldata{3} alldata{4}];
+[aggR,pval] = CIMLR_Feature_Ranking(S,mydata);

@@ -1,0 +1,9 @@
+^README.md$
+^LICENSE.md$
+^.gitignore$
+^.travis.yml$
+^.git/.*$
+src/*.o
+src/*.so
+LICENSE.md
+.travis.yml
