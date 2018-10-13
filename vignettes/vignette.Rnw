@@ -1,0 +1,163 @@
+%\VignetteEngine{knitr::knitr}
+
+\documentclass[a4paper, 9pt]{article}
+
+
+<<style-knitr, eval=TRUE, echo=FALSE, results="asis">>=
+BiocStyle::latex()
+@
+
+%\VignetteIndexEntry{Cancer Integration via Multikernel Learning (CIMLR)}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{url}
+\usepackage{tcolorbox}
+\usepackage{authblk}
+
+\begin{document}
+
+\title{Cancer Integration via Multikernel Learning (\Biocpkg{CIMLR})}
+
+\author[1]{Daniele Ramazzotti}
+\author[1]{Avantika Lal}
+\author[2]{Bo Wang}
+\author[3]{Luca De Sano}
+\author[2]{Serafim Batzoglou}
+\author[1]{Arend Sidow}
+
+\affil[1]{Department of Pathology, Stanford University, CA 94305, USA.}
+\affil[2]{Department of Computer Science, Stanford University, CA 94305, USA.}
+\affil[3]{Dipartimento di Informatica Sistemistica e Comunicazione, Università degli Studi di Milano-Bicocca, Milano, Italy.}
+
+\date{\today}
+\maketitle
+
+\begin{tcolorbox}{\bf Overview.} In this package we provide the implementation of the CIMLR method. This method was originally applied to cancer genomic data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. \\
+
+\vspace{1.0cm}
+
+{\em In this vignette, we give an overview of the package by presenting some of its main functions.}
+
+\vspace{1.0cm}
+
+\renewcommand{\arraystretch}{1.5}
+
+\end{tcolorbox}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance = TRUE,
+background = "#f3f3ff"
+)
+@
+
+
+\newpage
+
+\tableofcontents
+
+
+\section{Changelog} 
+
+\begin{itemize}
+\item[1.0.0] Package release. 
+\end{itemize}
+
+
+\section{Algorithms and useful links} \label{sec:stuff}
+
+\renewcommand{\arraystretch}{2}
+
+\begin{center}
+\begin{tabular}{| l | p{6.0cm} | l |}
+{\bf Acronym} & {\bf Extended name} & {\bf Reference}\\ \hline
+
+CIMLR & Cancer Integration via Multikernel Learning & \href{https://www.biorxiv.org/content/early/2018/09/16/267245}{Pubblication}\\ \hline
+
+\end{tabular}
+\end{center}
+
+\section{Using the CIMLR R package}
+
+We first load the data given as examples in the package. The dataset named GliomasReduced is a reduced dataset of the data originally published in Cancer Genome Atlas Research Network. "Comprehensive, integrative genomic analysis of diffuse lower-grade gliomas." New England Journal of Medicine 372.26 (2015): 2481-2498, where multi-omic data for a cohort of patients affected by lower grade gliomas are provided. 
+
+<<req>>=
+library(CIMLR)
+data(GliomasReduced)
+@
+
+We now run CIMLR an the above mentioned input data looking for a total of 3 subtypes, i.e., clusters. 
+
+<<CIMLR_run, warning=FALSE>>=
+set.seed(11111)
+example = CIMLR(X = GliomasReduced$in_X, c = 3, cores.ratio = 0)
+@
+
+As a further understanding of the results, we now visualize the clusters in a plot to see how well they are separated. 
+
+<<image, fig.show='hide', fig.width=5, fig.height=5,results='hide'>>=
+plot(example$ydata, 
+    col = c(topo.colors(3))[example$y[["cluster"]]], 
+    xlab = "CIMLR component 1",
+    ylab = "CIMLR component 2",
+    pch = 20,
+    main="CIMILR 2D visualization for GliomasReduced")
+@
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figure/image-1}
+\end{center}
+\caption{Visualization of the 3 clusters retrieved by CIMLR on the dataset GliomasReduced.}
+\end{figure*}
+
+We also run CIMLR feature ranking on the same inputs to get a rank of the key genes with the related pvalues. 
+
+<<CIMLR_Feature_Ranking_run, results='hide'>>=
+set.seed(11111)
+input_data = rbind(GliomasReduced$in_X$point_mutations,GliomasReduced$in_X$copy_numbers, 
+                   GliomasReduced$in_X$methylations,GliomasReduced$in_X$expression_values)
+ranks = CIMLR_Feature_Ranking(A=example$S,X=input_data)
+@
+
+<<head-ranks>>=
+head(ranks$pval)
+head(ranks$aggR)
+@
+
+Now, as a final example, we also provide the results of two heuristics (we refer to the CIMLR paper for details) to estimate the number of clusters from data. 
+
+<<CIMLR_Number_Clusters_run, warning=FALSE>>=
+set.seed(11111)
+NUMC = 2:10
+res_example = CIMLR_Estimate_Number_of_Clusters(GliomasReduced$in_X,
+                                                NUMC = NUMC,
+                                                cores.ratio = 0)
+@
+
+Best number of clusters, K1 heuristic:
+<<CIMLR_NC_output_k1>>=
+NUMC[which.min(res_example$K1)]
+@
+
+K2 heuristic:
+<<CIMLR_NC_output_k2>>=
+NUMC[which.min(res_example$K2)]
+@
+
+Results of the two heuristics:
+<<CIMLR_NC_output, warning=FALSE>>=
+res_example
+@
+
+\section{\Rcode{sessionInfo()}}
+
+<<sessioninfo, results='asis', echo=FALSE>>=
+toLatex(sessionInfo())
+@
+
+
+\end{document}
