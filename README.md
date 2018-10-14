@@ -10,7 +10,7 @@ Cancer Integration via Multikernel Learning (**CIMLR**)
 
 In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.biorxiv.org/content/early/2018/09/16/267245). This method was originally applied to multi-omic cancer data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
 
-The R branch of the repository provides the tool implemented in R, while the Matlab branch of the repository provides the Matlab implementation. Some example data are also provided, but those data are reduced versions of the original ones and should be used purely as examples and not considered as replacement of the ones provided in the respective publications. 
+The R branch of the repository provides the tool implemented in R, while the Matlab branch of the repository provides the Matlab implementation. Some example data are also provided, but those data are reduced versions of the original ones and should be used purely as examples and not considered as replacements of the ones provided in the respective publications. 
 
 **CIMLR**
 
@@ -28,17 +28,22 @@ The R version of *CIMLR* can be installed from Github. To do so, we need to inst
 
 First we run an R session and we execute the following commands. 
 
+```r
+# run this commands only if the following R packages are not already installed
 install.packages("devtools", dependencies = TRUE)
-
 install.packages("Matrix", dependencies = TRUE)
+```
 
 Now we can install and run *CIMLR* as follows: 
 
+```r
+# install CIMLR from Github
 library("devtools")
-
 install_github("danro9685/CIMLR", ref = 'R')
 
+# load CIMLR library
 library("CIMLR")
+```
 
 **RUNNING CIMLR MATLAB IMPLEMENTATION**
 
