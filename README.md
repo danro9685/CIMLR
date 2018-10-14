@@ -8,9 +8,9 @@ Cancer Integration via Multikernel Learning (**CIMLR**)
 
 **OVERVIEW**
 
-In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.biorxiv.org/content/early/2018/09/16/267245). This method was originally applied to cancer genomic data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
+In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.biorxiv.org/content/early/2018/09/16/267245). This method was originally applied to multi-omic cancer data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
 
-The R branch of the repository provides the tool implemented in R, while the Matlab branch of the repository provides the Matlab implementation. Some example data are also provided, but we recall that those data are reduced versions of the original ones and should be used purely as examples and not considered as replacement of the ones provided in the respective publications. 
+The R branch of the repository provides the tool implemented in R, while the Matlab branch of the repository provides the Matlab implementation. Some example data are also provided, but those data are reduced versions of the original ones and should be used purely as examples and not considered as replacements of the ones provided in the respective publications. 
 
 **CIMLR**
 
@@ -20,11 +20,11 @@ Outcomes for cancer patients vary greatly even within the same tumor type, and c
 
 The latest version of the manuscript related to *CIMLR* is published on Nature Communications and can be found at https://www.biorxiv.org/content/early/2018/09/16/267245. 
 
-When using the tool, please cite Ramazzotti, Daniele, et al. "Multi-omic tumor data reveal diversity of molecular mechanisms that correlate with survival." bioRxiv (2018): 267245. 
+When using the tool, please cite: Ramazzotti, Daniele, et al. "Multi-omic tumor data reveal diversity of molecular mechanisms that correlate with survival." bioRxiv (2018): 267245. 
 
 **RUNNING CIMLR R IMPLEMENTATION**
 
-The R version of *CIMLR* can be installed from Github. To do so, we need to install the R packages *CIMLR* dependes from and the devtools package. 
+The R version of *CIMLR* can be installed from Github. To do so, we need to install the R packages *CIMLR* depends on and the devtools package. 
 
 First we run an R session and we execute the following commands. 
 
@@ -32,7 +32,7 @@ install.packages("devtools", dependencies = TRUE)
 
 install.packages("Matrix", dependencies = TRUE)
 
-Now we can install and run *CIMLR* as follows. 
+Now we can install and run *CIMLR* as follows: 
 
 library("devtools")
 
@@ -44,7 +44,7 @@ library("CIMLR")
 
 The Matlab version of *CIMLR* is available in the Matlab branch of the repository. This version can be directly used through MATLAB by downloading the code in the repository. 
 
-The scripts *Estimate_Number_of_Clusters_CIMLR.m* and *CIMLR.m* implement heuristics to estimate the best number of clusters from data and the code to run *CIMLR*. The script *CIMLR_Feature_Ranking.m* provides code to assess which features were the most important for the clustering. 
+The scripts *Estimate_Number_of_Clusters_CIMLR.m* and *CIMLR.m* implement heuristics to estimate the best number of clusters from data and the code to run *CIMLR* respectively. The script *CIMLR_Feature_Ranking.m* provides code to assess which features were the most important for the clustering. 
 
 A demo of the whole *CIMLR* analysis is provided in the script *main_example_lower_grade_gliomas.m* for a dataset of 282 patients affected by lower-grade glioma. The original data were published in Cancer Genome Atlas Research Network. "Comprehensive, integrative genomic analysis of diffuse lower-grade gliomas." New England Journal of Medicine 372.26 (2015): 2481-2498. 
 
