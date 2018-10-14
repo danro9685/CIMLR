@@ -28,17 +28,22 @@ The R version of *CIMLR* can be installed from Github. To do so, we need to inst
 
 First we run an R session and we execute the following commands. 
 
+```r
+# run this commands only if the following R packages are not already installed
 install.packages("devtools", dependencies = TRUE)
-
 install.packages("Matrix", dependencies = TRUE)
+```
 
 Now we can install and run *CIMLR* as follows: 
 
+```r
+# install CIMLR from Github
 library("devtools")
-
 install_github("danro9685/CIMLR", ref = 'R')
 
+# load CIMLR library
 library("CIMLR")
+```
 
 **RUNNING CIMLR MATLAB IMPLEMENTATION**
 
