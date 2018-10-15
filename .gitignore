@@ -16,7 +16,7 @@
 *.Rproj
 
 # TRONCO Output
-*.pdf
+#*.pdf
 *.tar.gz
 *.tex
 *.mat
