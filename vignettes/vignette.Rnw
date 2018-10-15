@@ -75,7 +75,7 @@ background = "#f3f3ff"
 \begin{tabular}{| l | p{6.0cm} | l |}
 {\bf Acronym} & {\bf Extended name} & {\bf Reference}\\ \hline
 
-CIMLR & Cancer Integration via Multikernel Learning & \href{https://www.biorxiv.org/content/early/2018/09/16/267245}{Publication}\\ \hline
+CIMLR & Cancer Integration via Multikernel Learning & \href{https://www.biorxiv.org/content/early/2018/10/14/267245}{Publication}\\ \hline
 
 \end{tabular}
 \end{center}
@@ -89,46 +89,7 @@ library(CIMLR)
 data(GliomasReduced)
 @
 
-We now run CIMLR an the above mentioned input data looking for a total of 3 subtypes, i.e., clusters. 
-
-<<CIMLR_run, warning=FALSE>>=
-set.seed(11111)
-example = CIMLR(X = GliomasReduced$in_X, c = 3, cores.ratio = 0)
-@
-
-As a further understanding of the results, we now visualize the clusters in a plot to see how well they are separated. 
-
-<<image, fig.show='hide', fig.width=5, fig.height=5,results='hide'>>=
-plot(example$ydata, 
-    col = c(topo.colors(3))[example$y[["cluster"]]], 
-    xlab = "CIMLR component 1",
-    ylab = "CIMLR component 2",
-    pch = 20,
-    main="CIMILR 2D visualization for GliomasReduced")
-@
-
-\begin{figure*}[ht]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{figure/image-1}
-\end{center}
-\caption{Visualization of the 3 clusters retrieved by CIMLR on the dataset GliomasReduced.}
-\end{figure*}
-
-We also run CIMLR feature ranking on the same inputs to get a rank of the key genes with the related pvalues. 
-
-<<CIMLR_Feature_Ranking_run, results='hide'>>=
-set.seed(11111)
-input_data = rbind(GliomasReduced$in_X$point_mutations,GliomasReduced$in_X$copy_numbers, 
-                   GliomasReduced$in_X$methylations,GliomasReduced$in_X$expression_values)
-ranks = CIMLR_Feature_Ranking(A=example$S,X=input_data)
-@
-
-<<head-ranks>>=
-head(ranks$pval)
-head(ranks$aggR)
-@
-
-Now, as a final example, we also provide the results of two heuristics (we refer to the CIMLR paper for details) to estimate the number of clusters from data. 
+Now, we first estimate the best number of clusters from data with two heuristics (we refer to the CIMLR paper for details). We note that these data are highly reduced and the results are not indicative of the full dataset. 
 
 <<CIMLR_Number_Clusters_run, warning=FALSE>>=
 set.seed(11111)
@@ -153,11 +114,54 @@ Results of the two heuristics:
 res_example
 @
 
+We now run CIMLR an the above mentioned input data looking for a total of 5 subtypes, i.e., clusters. 
+
+<<CIMLR_run, warning=FALSE>>=
+set.seed(11111)
+example = CIMLR(X = GliomasReduced$in_X, c = 5, cores.ratio = 0)
+@
+
+As a further understanding of the results, we now visualize the clusters in a plot to see how well they are separated. 
+
+<<image, fig.show='hide', fig.width=5, fig.height=5,results='hide'>>=
+plot(example$ydata, 
+    col = c(topo.colors(5))[example$y[["cluster"]]], 
+    xlab = "CIMLR component 1",
+    ylab = "CIMLR component 2",
+    pch = 20,
+    main="CIMILR 2D visualization for GliomasReduced")
+@
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figure/image-1}
+\end{center}
+\caption{Visualization of the 5 clusters retrieved by CIMLR on the dataset GliomasReduced.}
+\end{figure*}
+
+We also run CIMLR feature ranking on the same inputs to get a rank of the key genes with the related pvalues. 
+
+<<CIMLR_Feature_Ranking_run, results='hide'>>=
+set.seed(11111)
+input_data = rbind(GliomasReduced$in_X$point_mutations,GliomasReduced$in_X$copy_numbers, 
+                   GliomasReduced$in_X$methylations,GliomasReduced$in_X$expression_values)
+ranks = CIMLR_Feature_Ranking(A=example$S,X=input_data)
+@
+
+
+The output of this function contains pvalues for the features ordered by significance and a vector named aggR that provides the position of the corresponding pvalue in the original data. 
+
+<<head-ranks>>=
+head(ranks$pval)
+head(ranks$aggR)
+@
+
+In this case, feature 110 in input data is the one with best pvalue of 4.234257e-47. 
+
 \section{\Rcode{sessionInfo()}}
 
 <<sessioninfo, results='asis', echo=FALSE>>=
 toLatex(sessionInfo())
 @
-
 
 \end{document}
