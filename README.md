@@ -45,7 +45,7 @@ install_github("danro9685/CIMLR", ref = 'R')
 library("CIMLR")
 ```
 
-We provide a manual and an example of how to run CIMLR on multi-omic cancer data in the doc directory. 
+We provide a manual and an example of how to run CIMLR on multi-omic cancer data in the [doc folder](https://github.com/danro9685/CIMLR/tree/R/doc). 
 
 **RUNNING CIMLR MATLAB IMPLEMENTATION**
 
