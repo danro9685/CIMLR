@@ -8,7 +8,7 @@ Cancer Integration via Multikernel Learning (**CIMLR**)
 
 **OVERVIEW**
 
-In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.biorxiv.org/content/early/2018/09/16/267245). This method was originally applied to multi-omic cancer data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
+In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.nature.com/articles/s41467-018-06921-8). This method was originally applied to multi-omic cancer data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
 
 The R branch of the repository provides the tool implemented in R, while the Matlab branch of the repository provides the Matlab implementation. Some example data are also provided, but those data are reduced versions of the original ones and should be used purely as examples and not considered as replacements of the ones provided in the respective publications. 
 
@@ -18,9 +18,9 @@ Outcomes for cancer patients vary greatly even within the same tumor type, and c
 
 **CITATION**
 
-The latest version of the manuscript related to *CIMLR* is published on Nature Communications and can be found at https://www.biorxiv.org/content/early/2018/09/16/267245. 
+The latest version of the manuscript related to *CIMLR* is published on Nature Communications and can be found at https://www.nature.com/articles/s41467-018-06921-8. 
 
-When using the tool, please cite: Ramazzotti, Daniele, et al. "Multi-omic tumor data reveal diversity of molecular mechanisms that correlate with survival." bioRxiv (2018): 267245. 
+When using the tool, please cite: Ramazzotti, Daniele, et al. "Multi-omic tumor data reveal diversity of molecular mechanisms that correlate with survival." Nature Communications (2018); doi:10.1038/s41467-018-06921-8. 
 
 **RUNNING CIMLR R IMPLEMENTATION**
 
