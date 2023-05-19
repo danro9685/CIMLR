@@ -1,11 +1,6 @@
 Cancer Integration via Multikernel Learning (**CIMLR**)
 =======================================================
 
-| Branch              | Stato CI      |
-|---------------------|---------------|
-| R | [![Build Status](https://travis-ci.org/danro9685/CIMLR.svg?branch=R)](https://travis-ci.org/danro9685/CIMLR) |
-
-
 **OVERVIEW**
 
 In this repository we provide implementations in both R and Matlab of *CIMLR* (https://www.nature.com/articles/s41467-018-06921-8). This method was originally applied to multi-omic cancer data, but it is in principle capable of effectively and efficiently learning similarities in all the contexts where diverse and heterogeneous statistical characteristics of the data make the problem harder for standard approaches. 
